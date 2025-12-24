@@ -1,0 +1,208 @@
+/* storage-style.css - Stylesheet Khusus untuk Halaman Kategori Storage */
+
+/* 1. HEADER KHUSUS KATEGORI STORAGE */
+.category-header.storage-header {
+    background: linear-gradient(135deg, #fd7e14 0%, #e8590c 100%);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin-top: -1px;
+}
+.category-header.storage-header h1 {
+    color: white;
+}
+.category-header.storage-header .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+.storage-icon-container {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+.storage-icon-container i {
+    font-size: 5rem;
+    color: white;
+}
+
+/* 2. KARTU PRODUK KHUSUS STORAGE */
+.storage-card {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.storage-card:hover {
+    border-color: #fd7e14;
+    box-shadow: 0 10px 25px rgba(253, 126, 20, 0.2) !important;
+}
+.storage-card .brand-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    width: fit-content;
+}
+.storage-card .brand-badge.samsung {
+    background-color: #1428a0;
+    color: white;
+}
+.storage-card .brand-badge.crucial {
+    background-color: #ff6b6b;
+    color: white;
+}
+.storage-card .brand-badge.wd {
+    background-color: #0067b3;
+    color: white;
+}
+
+/* 3. SPESIFIKASI TEKNIS STORAGE */
+.storage-card .specs {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #fd7e14;
+}
+
+/* 4. FILTER STYLING KHUSUS STORAGE */
+#storageFilterType, #storageFilterCapacity, #storageFilterInterface {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#storageFilterType:focus, #storageFilterCapacity:focus, #storageFilterInterface:focus {
+    border-color: #fd7e14;
+    box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
+}
+#storageResetFilter {
+    border: 2px solid #fd7e14;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#storageResetFilter:hover {
+    background-color: #fd7e14;
+    color: white;
+}
+
+/* 5. REKOMENDASI CARD */
+.recommendation-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.recommendation-card:hover {
+    transform: translateY(-5px);
+}
+.recommendation-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+.recommendation-icon.gaming {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+}
+.recommendation-icon.productivity {
+    background-color: rgba(32, 201, 151, 0.1);
+    color: #20c997;
+}
+.recommendation-icon.nas {
+    background-color: rgba(253, 126, 20, 0.1);
+    color: #fd7e14;
+}
+
+/* 6. KALKULATOR STORAGE */
+.form-range::-webkit-slider-thumb {
+    background-color: #fd7e14;
+}
+.form-range::-moz-range-thumb {
+    background-color: #fd7e14;
+}
+#storageResult {
+    border-left: 4px solid #fd7e14;
+}
+
+/* 7. CHART PERBANDINGAN */
+.comparison-chart {
+    margin-top: 1rem;
+}
+.chart-item {
+    margin-bottom: 1rem;
+}
+.chart-label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.chart-bar {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+}
+.bar-fill {
+    height: 100%;
+    border-radius: 10px;
+}
+.hdd-bar {
+    background-color: #6c757d;
+}
+.sata-bar {
+    background-color: #20c997;
+}
+.nvme3-bar {
+    background-color: #0d6efd;
+}
+.nvme4-bar {
+    background-color: #6610f2;
+}
+.chart-value {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* 8. ANIMASI KHUSUS UNTUK STORAGE */
+@keyframes storageLoad {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.storage-card {
+    animation: storageLoad 0.5s ease-out forwards;
+}
+.storage-card:nth-child(1) { animation-delay: 0.1s; }
+.storage-card:nth-child(2) { animation-delay: 0.2s; }
+.storage-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* 9. RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .storage-icon-container {
+        width: 100px;
+        height: 100px;
+        margin-top: 1rem;
+    }
+    .storage-icon-container i {
+        font-size: 3rem;
+    }
+    .category-header.storage-header {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .recommendation-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}

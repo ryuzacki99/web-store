@@ -1,0 +1,109 @@
+/* gpu-style.css - Stylesheet Khusus untuk Halaman Kategori GPU */
+
+/* 1. HEADER KHUSUS KATEGORI GPU */
+.category-header.gpu-header {
+    background: linear-gradient(135deg, #6f42c1 0%, #59359c 100%);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin-top: -1px;
+}
+.category-header.gpu-header h1 {
+    color: white;
+}
+.category-header.gpu-header .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+.gpu-icon-container {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+.gpu-icon-container i {
+    font-size: 5rem;
+    color: white;
+}
+
+/* 2. KARTU PRODUK KHUSUS GPU */
+.gpu-card {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.gpu-card:hover {
+    border-color: #6f42c1;
+    box-shadow: 0 10px 25px rgba(111, 66, 193, 0.2) !important;
+}
+.gpu-card .brand-badge.nvidia {
+    background-color: #76b900;
+    color: white;
+}
+.gpu-card .brand-badge.amd {
+    background-color: #ed1c24;
+    color: white;
+}
+
+/* 3. SPESIFIKASI TEKNIS GPU */
+.gpu-card .specs {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #6f42c1;
+}
+
+/* 4. FILTER STYLING KHUSUS GPU */
+#gpuFilterBrand, #gpuFilterSeries, #gpuFilterVRAM {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#gpuFilterBrand:focus, #gpuFilterSeries:focus, #gpuFilterVRAM:focus {
+    border-color: #6f42c1;
+    box-shadow: 0 0 0 0.25rem rgba(111, 66, 193, 0.25);
+}
+#gpuResetFilter {
+    border: 2px solid #6f42c1;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#gpuResetFilter:hover {
+    background-color: #6f42c1;
+    color: white;
+}
+
+/* 5. INFORMASI GPU CARD */
+.card .fa-gamepad, .card .fa-desktop, .card .fa-video {
+    color: #6f42c1;
+}
+
+/* 6. ANIMASI KHUSUS UNTUK GPU */
+@keyframes gpuGlow {
+    0% { box-shadow: 0 0 5px rgba(111, 66, 193, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(111, 66, 193, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(111, 66, 193, 0.5); }
+}
+.gpu-card:hover {
+    animation: gpuGlow 2s infinite;
+}
+
+/* 7. RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .gpu-icon-container {
+        width: 100px;
+        height: 100px;
+        margin-top: 1rem;
+    }
+    .gpu-icon-container i {
+        font-size: 3rem;
+    }
+    .category-header.gpu-header {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}

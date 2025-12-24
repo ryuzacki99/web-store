@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penyimpanan - TechShop</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS Khusus Kategori Storage -->
+    <link rel="stylesheet" href="css/storage-style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-laptop me-2"></i>TechShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html#products">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html" id="cartNavLink">
+                            <i class="fas fa-shopping-cart"></i>
+                            Keranjang
+                            <span class="badge bg-danger cart-counter" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="py-3 bg-light">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom mb-0">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#products">Produk</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Penyimpanan</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Header Kategori -->
+    <section class="py-5 category-header storage-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold mb-3"><i class="fas fa-hdd me-2"></i>Penyimpanan</h1>
+                    <p class="lead mb-4">SSD NVMe, SATA, dan HDD dengan berbagai kapasitas untuk semua kebutuhan penyimpanan data Anda.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-primary p-2">SSD NVMe</span>
+                        <span class="badge bg-primary p-2">SSD SATA</span>
+                        <span class="badge bg-primary p-2">HDD</span>
+                        <span class="badge bg-primary p-2">PCIe 4.0</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="storage-icon-container">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Produk -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <select class="form-select" id="storageFilterType">
+                        <option value="">Tipe Penyimpanan</option>
+                        <option value="nvme">SSD NVMe</option>
+                        <option value="sata">SSD SATA</option>
+                        <option value="hdd">HDD</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="storageFilterCapacity">
+                        <option value="">Kapasitas</option>
+                        <option value="500">500GB</option>
+                        <option value="1000">1TB</option>
+                        <option value="2000">2TB</option>
+                        <option value="4000">4TB</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="storageFilterInterface">
+                        <option value="">Interface</option>
+                        <option value="pcie4">PCIe 4.0</option>
+                        <option value="pcie3">PCIe 3.0</option>
+                        <option value="sata3">SATA III</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-outline-primary w-100" id="storageResetFilter">
+                        <i class="fas fa-redo me-1"></i> Reset Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Produk Storage -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="section-title">Produk Penyimpanan</h2>
+                    <p class="text-muted">Menampilkan <span id="storageProductCount">6</span> produk</p>
+                </div>
+            </div>
+            
+            <div class="row g-4" id="storageProducts">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6 storage-product-item" data-type="nvme" data-capacity="2000" data-interface="pcie4">
+                    <div class="card product-card h-100 shadow storage-card">
+                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">HOT</span>
+                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="SSD NVMe">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge samsung">SAMSUNG</div>
+                            <h5 class="card-title">Samsung 980 PRO 2TB NVMe SSD</h5>
+                            <p class="card-text flex-grow-1">SSD NVMe PCIe 4.0 dengan kecepatan baca hingga 7000MB/s untuk gaming dan profesional.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-hdd me-1"></i> 2TB NVMe PCIe 4.0</small><br>
+                                <small><i class="fas fa-tachometer-alt me-1"></i> Read: 7000MB/s</small><br>
+                                <small><i class="fas fa-shield-alt me-1"></i> 5 Year Warranty</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 3.800.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-storage" data-product="Samsung 980 PRO 2TB NVMe SSD">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-storage">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6 storage-product-item" data-type="sata" data-capacity="4000" data-interface="sata3">
+                    <div class="card product-card h-100 shadow storage-card">
+                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="SSD SATA">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge crucial">Crucial</div>
+                            <h5 class="card-title">Crucial MX500 4TB SATA SSD</h5>
+                            <p class="card-text flex-grow-1">SSD SATA dengan kapasitas besar dan keandalan tinggi untuk penyimpanan massal.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-hdd me-1"></i> 4TB SATA III</small><br>
+                                <small><i class="fas fa-tachometer-alt me-1"></i> Read: 560MB/s</small><br>
+                                <small><i class="fas fa-shield-alt me-1"></i> 5 Year Warranty</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 5.200.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-storage" data-product="Crucial MX500 4TB SATA SSD">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-storage">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6 storage-product-item" data-type="hdd" data-capacity="8000" data-interface="sata3">
+                    <div class="card product-card h-100 shadow storage-card">
+                        <span class="badge bg-warning position-absolute top-0 end-0 m-2">BEST VALUE</span>
+                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="HDD">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge wd">WD</div>
+                            <h5 class="card-title">WD Blue 8TB 3.5" HDD</h5>
+                            <p class="card-text flex-grow-1">Hard disk dengan kapasitas sangat besar untuk backup data dan media storage.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-hdd me-1"></i> 8TB 3.5" HDD</small><br>
+                                <small><i class="fas fa-tachometer-alt me-1"></i> 7200 RPM</small><br>
+                                <small><i class="fas fa-shield-alt me-1"></i> 2 Year Warranty</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 2.900.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-storage" data-product="WD Blue 8TB 3.5 HDD">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-storage">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rekomendasi Berdasarkan Kebutuhan -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-star me-2"></i>Rekomendasi Berdasarkan Kebutuhan</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="recommendation-card">
+                                        <div class="recommendation-icon gaming">
+                                            <i class="fas fa-gamepad"></i>
+                                        </div>
+                                        <h6>Untuk Gaming</h6>
+                                        <p><strong>SSD NVMe 1TB PCIe 4.0</strong></p>
+                                        <p>Loading game cepat, storage untuk 10-15 game AAA</p>
+                                        <small class="text-muted">Contoh: Samsung 980 PRO, WD Black SN850</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="recommendation-card">
+                                        <div class="recommendation-icon productivity">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <h6>Untuk Produktivitas</h6>
+                                        <p><strong>SSD NVMe 2TB + HDD 4TB</strong></p>
+                                        <p>SSD untuk OS & aplikasi, HDD untuk data & backup</p>
+                                        <small class="text-muted">Kombinasi optimal performa & kapasitas</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="recommendation-card">
+                                        <div class="recommendation-icon nas">
+                                            <i class="fas fa-server"></i>
+                                        </div>
+                                        <h6>Untuk NAS/Server</h6>
+                                        <p><strong>HDD NAS 8TB+ (RAID)</strong></p>
+                                        <p>HDD khusus NAS dengan MTBF tinggi dan keandalan</p>
+                                        <small class="text-muted">Contoh: WD Red Pro, Seagate IronWolf</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Calculator Kapasitas Storage -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0"><i class="fas fa-calculator me-2"></i>Kalkulator Kebutuhan Storage</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label">Jumlah Game AAA</label>
+                                <input type="range" class="form-range" id="gameCount" min="0" max="20" value="5">
+                                <div class="d-flex justify-content-between">
+                                    <small>0</small>
+                                    <small id="gameCountValue">5 game</small>
+                                    <small>20</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Video Editing (jam/bulan)</label>
+                                <input type="range" class="form-range" id="videoHours" min="0" max="50" value="10">
+                                <div class="d-flex justify-content-between">
+                                    <small>0</small>
+                                    <small id="videoHoursValue">10 jam</small>
+                                    <small>50</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Foto/File Pribadi (GB)</label>
+                                <input type="range" class="form-range" id="personalFiles" min="0" max="500" value="100">
+                                <div class="d-flex justify-content-between">
+                                    <small>0GB</small>
+                                    <small id="personalFilesValue">100GB</small>
+                                    <small>500GB</small>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100" id="calculateStorage">
+                                <i class="fas fa-calculator me-1"></i> Hitung Kebutuhan
+                            </button>
+                            <div class="mt-3 p-3 bg-light rounded" id="storageResult">
+                                <h6>Rekomendasi Storage:</h6>
+                                <p class="mb-1">Total: <strong id="totalStorage">0 GB</strong></p>
+                                <p class="mb-0">Rekomendasi: <span id="recommendedStorage" class="text-primary">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Perbandingan Tipe Storage</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="comparison-chart">
+                                <div class="chart-item">
+                                    <div class="chart-label">HDD</div>
+                                    <div class="chart-bar">
+                                        <div class="bar-fill hdd-bar" style="width: 30%"></div>
+                                    </div>
+                                    <div class="chart-value">Kecepatan: 100-200MB/s</div>
+                                </div>
+                                <div class="chart-item">
+                                    <div class="chart-label">SSD SATA</div>
+                                    <div class="chart-bar">
+                                        <div class="bar-fill sata-bar" style="width: 60%"></div>
+                                    </div>
+                                    <div class="chart-value">Kecepatan: 500-600MB/s</div>
+                                </div>
+                                <div class="chart-item">
+                                    <div class="chart-label">SSD NVMe Gen3</div>
+                                    <div class="chart-bar">
+                                        <div class="bar-fill nvme3-bar" style="width: 85%"></div>
+                                    </div>
+                                    <div class="chart-value">Kecepatan: 3000-3500MB/s</div>
+                                </div>
+                                <div class="chart-item">
+                                    <div class="chart-label">SSD NVMe Gen4</div>
+                                    <div class="chart-bar">
+                                        <div class="bar-fill nvme4-bar" style="width: 100%"></div>
+                                    </div>
+                                    <div class="chart-value">Kecepatan: 5000-7000MB/s</div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h6>Tips:</h6>
+                                <ul class="small">
+                                    <li>Gunakan NVMe untuk OS dan aplikasi utama</li>
+                                    <li>SSD SATA cocok untuk game library</li>
+                                    <li>HDD untuk backup dan file besar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-laptop me-2"></i>TechShop</h5>
+                    <p>Toko komputer terpercaya menyediakan segala kebutuhan komputasi Anda dengan kualitas dan harga terbaik.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kontak Kami</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Teknologi No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone me-2"></i> (021) 555-1234</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@techshop.com</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kategori Populer</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="category-cpu.html" class="text-light text-decoration-none">CPU & Processor</a></li>
+                        <li><a href="category-gpu.html" class="text-light text-decoration-none">Kartu Grafis (GPU)</a></li>
+                        <li><a href="category-ram.html" class="text-light text-decoration-none">RAM & Memori</a></li>
+                        <li><a href="category-storage.html" class="text-light text-decoration-none active">Penyimpanan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row pt-3">
+                <div class="col-12 text-center">
+                    <p>&copy; 2023 TechShop. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal untuk Detail Produk Storage -->
+    <div class="modal fade" id="storageProductModal" tabindex="-1" aria-labelledby="storageProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="storageProductModalLabel">Detail Produk Penyimpanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" class="img-fluid rounded mb-3" id="storageModalProductImage" alt="Storage Product Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="storageModalProductTitle"></h4>
+                            <div id="storageModalProductBrand" class="mb-2"></div>
+                            <p id="storageModalProductDescription"></p>
+                            <div class="specs mb-3">
+                                <h6>Spesifikasi Teknis:</h6>
+                                <ul id="storageModalProductSpecs"></ul>
+                            </div>
+                            <h4 class="text-primary fw-bold mb-4" id="storageModalProductPrice"></h4>
+                            <button class="btn btn-primary btn-lg w-100" id="storageModalAddToCart">
+                                <i class="fas fa-cart-plus me-2"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast untuk Notifikasi Storage -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="storageCartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-hdd text-primary me-2"></i>
+                <strong class="me-auto">TechShop Storage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <span id="storageToastMessage">Produk penyimpanan telah ditambahkan ke keranjang!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Khusus untuk Halaman Storage -->
+    <script src="js/storage-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAM & Memori - TechShop</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS Khusus Kategori RAM -->
+    <link rel="stylesheet" href="css/ram-style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-laptop me-2"></i>TechShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html#products">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html" id="cartNavLink">
+                            <i class="fas fa-shopping-cart"></i>
+                            Keranjang
+                            <span class="badge bg-danger cart-counter" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="py-3 bg-light">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom mb-0">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#products">Produk</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">RAM & Memori</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Header Kategori -->
+    <section class="py-5 category-header ram-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold mb-3"><i class="fas fa-memory me-2"></i>RAM & Memori</h1>
+                    <p class="lead mb-4">Tingkatkan performa sistem Anda dengan RAM berkualitas tinggi dari merek terpercaya. Pilih DDR4 atau DDR5 dengan berbagai kapasitas dan kecepatan.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-primary p-2">DDR5</span>
+                        <span class="badge bg-primary p-2">DDR4</span>
+                        <span class="badge bg-primary p-2">RGB Lighting</span>
+                        <span class="badge bg-primary p-2">Low Latency</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="ram-icon-container">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Produk -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <select class="form-select" id="ramFilterType">
+                        <option value="">Tipe RAM</option>
+                        <option value="ddr5">DDR5</option>
+                        <option value="ddr4">DDR4</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="ramFilterCapacity">
+                        <option value="">Kapasitas</option>
+                        <option value="16">16GB</option>
+                        <option value="32">32GB</option>
+                        <option value="64">64GB</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="ramFilterSpeed">
+                        <option value="">Kecepatan</option>
+                        <option value="4800">4800MHz</option>
+                        <option value="5200">5200MHz</option>
+                        <option value="6000">6000MHz</option>
+                        <option value="6400">6400MHz</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-outline-primary w-100" id="ramResetFilter">
+                        <i class="fas fa-redo me-1"></i> Reset Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Produk RAM -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="section-title">Produk RAM & Memori</h2>
+                    <p class="text-muted">Menampilkan <span id="ramProductCount">6</span> produk</p>
+                </div>
+            </div>
+            
+            <div class="row g-4" id="ramProducts">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6 ram-product-item" data-type="ddr5" data-capacity="32" data-speed="6000">
+                    <div class="card product-card h-100 shadow ram-card">
+                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">HOT</span>
+                        <img src="https://images.unsplash.com/photo-1593640494705-8daa10c8c5ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="RAM DDR5 RGB">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge corsair">CORSAIR</div>
+                            <h5 class="card-title">CORSAIR Vengeance RGB 32GB (2x16GB) DDR5 6000MHz</h5>
+                            <p class="card-text flex-grow-1">RAM DDR5 dengan lighting RGB yang dapat dikustomisasi dan performa tinggi.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-microchip me-1"></i> DDR5 6000MHz</small><br>
+                                <small><i class="fas fa-palette me-1"></i> RGB Lighting</small><br>
+                                <small><i class="fas fa-tachometer-alt me-1"></i> CL36 Timing</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 3.500.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-ram" data-product="CORSAIR Vengeance RGB 32GB DDR5 6000MHz">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-ram">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6 ram-product-item" data-type="ddr5" data-capacity="64" data-speed="6400">
+                    <div class="card product-card h-100 shadow ram-card">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">NEW</span>
+                        <img src="https://images.unsplash.com/photo-1593640494705-8daa10c8c5ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="RAM DDR5 High Speed">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge gskill">G.SKILL</div>
+                            <h5 class="card-title">G.SKILL Trident Z5 RGB 64GB (2x32GB) DDR5 6400MHz</h5>
+                            <p class="card-text flex-grow-1">RAM DDR5 berkecepatan tinggi untuk workstation dan gaming ekstrem.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-microchip me-1"></i> DDR5 6400MHz</small><br>
+                                <small><i class="fas fa-palette me-1"></i> RGB Lighting</small><br>
+                                <small><i class="fas fa-tachometer-alt me-1"></i> CL32 Timing</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 8.200.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-ram" data-product="G.SKILL Trident Z5 RGB 64GB DDR5 6400MHz">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-ram">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6 ram-product-item" data-type="ddr4" data-capacity="16" data-speed="3200">
+                    <div class="card product-card h-100 shadow ram-card">
+                        <img src="https://images.unsplash.com/photo-1593640494705-8daa10c8c5ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="RAM DDR4 Value">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge kingston">KINGSTON</div>
+                            <h5 class="card-title">Kingston Fury Beast 16GB (2x8GB) DDR4 3200MHz</h5>
+                            <p class="card-text flex-grow-1">RAM DDR4 dengan harga terjangkau dan performa optimal untuk gaming.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-microchip me-1"></i> DDR4 3200MHz</small><br>
+                                <small><i class="fas fa-bolt me-1"></i> Plug & Play</small><br>
+                                <small><i class="fas fa-tachometer-alt me-1"></i> CL16 Timing</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 1.200.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-ram" data-product="Kingston Fury Beast 16GB DDR4 3200MHz">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-ram">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Perbandingan RAM -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-balance-scale me-2"></i>Perbandingan DDR4 vs DDR5</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Fitur</th>
+                                            <th>DDR4</th>
+                                            <th>DDR5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Kecepatan Standar</td>
+                                            <td>2133 - 3200 MHz</td>
+                                            <td>4800 - 8400 MHz</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Voltage</td>
+                                            <td>1.2V</td>
+                                            <td>1.1V</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kapasitas Maksimum per Modul</td>
+                                            <td>64GB</td>
+                                            <td>128GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>On-Die ECC</td>
+                                            <td>Tidak</td>
+                                            <td>Ya</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rekomendasi Untuk</td>
+                                            <td>Budget Build, Sistem Lama</td>
+                                            <td>Gaming High-End, Workstation</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tips Memilih RAM -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5><i class="fas fa-lightbulb text-warning me-2"></i>Tips Memilih RAM</h5>
+                            <ul>
+                                <li>Untuk gaming: Prioritas kecepatan (MHz) dan timing rendah (CL)</li>
+                                <li>Untuk workstation: Prioritas kapasitas besar (32GB+)</li>
+                                <li>Pastikan kompatibel dengan motherboard (cek tipe DDR)</li>
+                                <li>RAM dual-channel lebih baik dari single-channel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5><i class="fas fa-question-circle text-info me-2"></i>FAQ RAM</h5>
+                            <div class="accordion" id="ramFAQ">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            DDR4 vs DDR5, mana yang lebih baik?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#ramFAQ">
+                                        <div class="accordion-body">
+                                            DDR5 lebih cepat dan efisien, tetapi lebih mahal. DDR4 masih bagus untuk sistem dengan budget terbatas.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            Apakah perlu RAM dengan RGB?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#ramFAQ">
+                                        <div class="accordion-body">
+                                            RGB hanya untuk estetika, tidak mempengaruhi performa. Pilih berdasarkan kebutuhan dan preferensi visual.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-laptop me-2"></i>TechShop</h5>
+                    <p>Toko komputer terpercaya menyediakan segala kebutuhan komputasi Anda dengan kualitas dan harga terbaik.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kontak Kami</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Teknologi No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone me-2"></i> (021) 555-1234</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@techshop.com</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kategori Populer</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="category-cpu.html" class="text-light text-decoration-none">CPU & Processor</a></li>
+                        <li><a href="category-gpu.html" class="text-light text-decoration-none">Kartu Grafis (GPU)</a></li>
+                        <li><a href="category-ram.html" class="text-light text-decoration-none active">RAM & Memori</a></li>
+                        <li><a href="category-storage.html" class="text-light text-decoration-none">Penyimpanan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row pt-3">
+                <div class="col-12 text-center">
+                    <p>&copy; 2023 TechShop. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal untuk Detail Produk RAM -->
+    <div class="modal fade" id="ramProductModal" tabindex="-1" aria-labelledby="ramProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ramProductModalLabel">Detail Produk RAM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" class="img-fluid rounded mb-3" id="ramModalProductImage" alt="RAM Product Image">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="ramModalProductTitle"></h4>
+                            <div id="ramModalProductBrand" class="mb-2"></div>
+                            <p id="ramModalProductDescription"></p>
+                            <div class="specs mb-3">
+                                <h6>Spesifikasi Teknis:</h6>
+                                <ul id="ramModalProductSpecs"></ul>
+                            </div>
+                            <h4 class="text-primary fw-bold mb-4" id="ramModalProductPrice"></h4>
+                            <button class="btn btn-primary btn-lg w-100" id="ramModalAddToCart">
+                                <i class="fas fa-cart-plus me-2"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast untuk Notifikasi RAM -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="ramCartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-memory text-primary me-2"></i>
+                <strong class="me-auto">TechShop RAM</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <span id="ramToastMessage">Produk RAM telah ditambahkan ke keranjang!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Khusus untuk Halaman RAM -->
+    <script src="js/ram-script.js"></script>
+</body>
+</html>

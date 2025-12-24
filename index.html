@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShop - Toko Komputer & Aksesori</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-laptop me-2"></i>TechShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#products">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html" id="cartNavLink">
+                            <i class="fas fa-shopping-cart"></i>
+                            Keranjang
+                            <span class="badge bg-danger cart-counter" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Jumbotron -->
+    <section id="home" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-3">Solusi Lengkap Kebutuhan Komputer Anda</h1>
+                    <p class="lead mb-4">Temukan berbagai komponen PC, laptop, aksesori, dan periferal dengan kualitas terbaik dan harga kompetitif. TechShop adalah partner terpercaya untuk semua kebutuhan teknologi Anda.</p>
+                    <a href="#products" class="btn btn-primary btn-lg px-4"><i class="fas fa-shopping-cart me-2"></i> Belanja Sekarang</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hero Image PC Setup" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kategori Produk -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Kategori Produk</h2>
+                    <p class="text-muted">Telusuri berdasarkan kategori yang Anda butuhkan</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- CATATAN: Setiap kategori sekarang mengarah ke halaman terpisah -->
+                <div class="col-md-3 col-sm-6">
+                    <a href="category-cpu.html" class="card-link">
+                        <div class="card category-card text-center h-100 shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">CPU & Processor</h5>
+                                <p class="card-text">Intel, AMD, dan lainnya.</p>
+                                <span class="badge bg-primary">Lihat Produk <i class="fas fa-arrow-right ms-1"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="category-gpu.html" class="card-link">
+                        <div class="card category-card text-center h-100 shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-desktop fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">VGA & Kartu Grafis</h5>
+                                <p class="card-text">NVIDIA, AMD Radeon.</p>
+                                <span class="badge bg-primary">Lihat Produk <i class="fas fa-arrow-right ms-1"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="category-ram.html" class="card-link">
+                        <div class="card category-card text-center h-100 shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-memory fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">RAM & Memori</h5>
+                                <p class="card-text">DDR4, DDR5, dan SSD.</p>
+                                <span class="badge bg-primary">Lihat Produk <i class="fas fa-arrow-right ms-1"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="category-storage.html" class="card-link">
+                        <div class="card category-card text-center h-100 shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-hdd fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Penyimpanan</h5>
+                                <p class="card-text">HDD, SSD, NVMe.</p>
+                                <span class="badge bg-primary">Lihat Produk <i class="fas fa-arrow-right ms-1"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Produk -->
+    <section id="products" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Produk Unggulan</h2>
+                    <p class="text-muted">Rekomendasi produk terbaik pilihan kami</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card h-100 shadow" 
+                         data-product-id="P001"
+                         data-product-name="AMD Ryzen 9 7950X"
+                         data-product-price="8999000"
+                         data-product-image="https://images.unsplash.com/photo-1593640495253-23196b27a87f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">HOT</span>
+                        <img src="https://images.unsplash.com/photo-1593640495253-23196b27a87f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Processor AMD Ryzen">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">AMD Ryzen 9 7950X</h5>
+                            <p class="card-text flex-grow-1">Processor 16-core, 32-thread untuk gaming dan produktivitas tertinggi.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 8.999.000</span>
+                                <a href="#" class="btn btn-outline-primary btn-sm add-to-cart-btn"><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card h-100 shadow"
+                         data-product-id="P002"
+                         data-product-name="NVIDIA RTX 4080"
+                         data-product-price="18500000"
+                         data-product-image="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="NVIDIA Graphics Card">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">NVIDIA RTX 4080</h5>
+                            <p class="card-text flex-grow-1">Kartu grafis flagship dengan DLSS 3 dan ray tracing untuk pengalaman gaming mulus.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 18.500.000</span>
+                                <a href="#" class="btn btn-outline-primary btn-sm add-to-cart-btn"><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card h-100 shadow"
+                         data-product-id="P003"
+                         data-product-name="SSD NVMe 2TB"
+                         data-product-price="2450000"
+                         data-product-image="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">NEW</span>
+                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="SSD NVMe">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">SSD NVMe 2TB</h5>
+                            <p class="card-text flex-grow-1">Penyimpanan ultra-cepat PCIe 4.0, read speed hingga 7000MB/s.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 2.450.000</span>
+                                <a href="#" class="btn btn-outline-primary btn-sm add-to-cart-btn"><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card product-card h-100 shadow"
+                         data-product-id="P004"
+                         data-product-name="RAM DDR5 32GB (2x16GB)"
+                         data-product-price="3200000"
+                         data-product-image="https://images.unsplash.com/photo-1593640494705-8daa10c8c5ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1593640494705-8daa10c8c5ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="RAM DDR5">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">RAM DDR5 32GB (2x16GB)</h5>
+                            <p class="card-text flex-grow-1">RAM DDR5 5600MHz CL36 untuk performa gaming dan multitasking terbaik.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 3.200.000</span>
+                                <a href="#" class="btn btn-outline-primary btn-sm add-to-cart-btn"><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Us" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Tentang TechShop</h2>
+                    <p>TechShop didirikan pada tahun 2010 dengan misi menyediakan komponen komputer berkualitas tinggi dengan layanan terbaik. Kami telah melayani ribuan pelanggan, dari gamer, profesional kreatif, hingga perusahaan.</p>
+                    <p>Komitmen kami adalah memberikan produk asli, garansi resmi, dan dukungan teknis yang responsif. Tim ahli kami siap membantu Anda merakit PC impian atau memecahkan masalah teknis.</p>
+                    <a href="#contact" class="btn btn-primary mt-3">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Kontak -->
+    <footer id="contact" class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-laptop me-2"></i>TechShop</h5>
+                    <p>Toko komputer terpercaya menyediakan segala kebutuhan komputasi Anda dengan kualitas dan harga terbaik.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kontak Kami</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Teknologi No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone me-2"></i> (021) 555-1234</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@techshop.com</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Jam Operasional</h5>
+                    <p>Senin - Jumat: 09:00 - 21:00 WIB</p>
+                    <p>Sabtu - Minggu: 10:00 - 18:00 WIB</p>
+                    <p>Hari Libur: Tutup</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row pt-3">
+                <div class="col-12 text-center">
+                    <p>&copy; 2023 TechShop. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast untuk Notifikasi -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-shopping-cart text-primary me-2"></i>
+                <strong class="me-auto">TechShop</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <span id="toastMessage">Produk telah ditambahkan ke keranjang!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Kustom -->
+    <script src="js/main.js"></script>
+</body>
+</html>

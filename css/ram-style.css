@@ -1,0 +1,173 @@
+/* ram-style.css - Stylesheet Khusus untuk Halaman Kategori RAM */
+
+/* 1. HEADER KHUSUS KATEGORI RAM */
+.category-header.ram-header {
+    background: linear-gradient(135deg, #20c997 0%, #199d76 100%);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin-top: -1px;
+}
+.category-header.ram-header h1 {
+    color: white;
+}
+.category-header.ram-header .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+.ram-icon-container {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+.ram-icon-container i {
+    font-size: 5rem;
+    color: white;
+}
+
+/* 2. KARTU PRODUK KHUSUS RAM */
+.ram-card {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.ram-card:hover {
+    border-color: #20c997;
+    box-shadow: 0 10px 25px rgba(32, 201, 151, 0.2) !important;
+    transform: translateY(-5px);
+}
+.ram-card .brand-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    width: fit-content;
+}
+.ram-card .brand-badge.corsair {
+    background-color: #ff6b35;
+    color: white;
+}
+.ram-card .brand-badge.gskill {
+    background-color: #1e90ff;
+    color: white;
+}
+.ram-card .brand-badge.kingston {
+    background-color: #ffd700;
+    color: #333;
+}
+
+/* 3. SPESIFIKASI TEKNIS RAM */
+.ram-card .specs {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #20c997;
+}
+
+/* 4. FILTER STYLING KHUSUS RAM */
+#ramFilterType, #ramFilterCapacity, #ramFilterSpeed {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#ramFilterType:focus, #ramFilterCapacity:focus, #ramFilterSpeed:focus {
+    border-color: #20c997;
+    box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25);
+}
+#ramResetFilter {
+    border: 2px solid #20c997;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#ramResetFilter:hover {
+    background-color: #20c997;
+    color: white;
+}
+
+/* 5. TABLE STYLING UNTUK PERBANDINGAN */
+.table-hover tbody tr:hover {
+    background-color: rgba(32, 201, 151, 0.1);
+}
+.table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #20c997;
+}
+
+/* 6. ACCORDION STYLING */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(32, 201, 151, 0.1);
+    color: #199d76;
+}
+.accordion-button:focus {
+    border-color: #20c997;
+    box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25);
+}
+
+/* 7. ANIMASI KHUSUS UNTUK RAM */
+@keyframes ramGlow {
+    0% { 
+        transform: translateY(0);
+        box-shadow: 0 5px 15px rgba(32, 201, 151, 0.3);
+    }
+    50% { 
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(32, 201, 151, 0.5);
+    }
+    100% { 
+        transform: translateY(0);
+        box-shadow: 0 5px 15px rgba(32, 201, 151, 0.3);
+    }
+}
+.ram-card:hover {
+    animation: ramGlow 2s ease-in-out infinite;
+}
+
+/* 8. RGB LIGHTING EFFECT (untuk kartu RAM dengan RGB) */
+.ram-card[data-has-rgb="true"] {
+    position: relative;
+    overflow: hidden;
+}
+.ram-card[data-has-rgb="true"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 0, 0, 0.1), 
+        rgba(0, 255, 0, 0.1), 
+        rgba(0, 0, 255, 0.1), 
+        transparent);
+    transition: left 0.5s;
+}
+.ram-card[data-has-rgb="true"]:hover::before {
+    left: 100%;
+}
+
+/* 9. RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .ram-icon-container {
+        width: 100px;
+        height: 100px;
+        margin-top: 1rem;
+    }
+    .ram-icon-container i {
+        font-size: 3rem;
+    }
+    .category-header.ram-header {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+}

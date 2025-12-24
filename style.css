@@ -1,0 +1,182 @@
+/* style.css - Stylesheet Kustom untuk TechShop (Halaman Utama) */
+
+/* 1. VARIABEL DAN SETTING AWAL */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --light-bg: #f8f9fa;
+    --dark-bg: #212529;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 76px;
+    color: #333;
+    background-color: #fff;
+}
+
+/* 2. UTILITY & HELPER CLASS */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+.text-center .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 3. STYLE UNTUK KOMPONEN KHUSUS */
+
+/* 3A. Navbar Custom */
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+/* 3B. Kartu Kategori - PERUBAHAN PENTING: link wrapper */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.card-link:hover {
+    color: inherit;
+}
+.category-card {
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+.category-card .card-body {
+    padding: 2rem 1rem;
+}
+.category-card i {
+    transition: transform 0.3s ease;
+}
+.category-card:hover i {
+    transform: scale(1.1);
+}
+.category-card .badge {
+    transition: all 0.3s ease;
+}
+.category-card:hover .badge {
+    background-color: var(--dark-bg) !important;
+    transform: translateX(5px);
+}
+
+/* 3C. Kartu Produk */
+.product-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+.product-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+.product-card .card-body {
+    padding: 1.5rem;
+}
+.product-card .badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.8em;
+    z-index: 1;
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 3D. Footer */
+footer a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+footer a:hover {
+    color: var(--primary-color) !important;
+}
+.social-links a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* 4. BREADCRUMB STYLE (untuk halaman kategori) */
+.breadcrumb-custom {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+}
+.breadcrumb-custom .breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.breadcrumb-custom .breadcrumb-item.active {
+    color: var(--secondary-color);
+}
+
+/* 5. RESPONSIVITAS TAMBAHAN */
+@media (max-width: 768px) {
+    body {
+        padding-top: 66px;
+    }
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .category-card .card-body {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* 6. ANIMASI UMUM */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}

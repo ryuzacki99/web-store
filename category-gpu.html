@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu Grafis (GPU) - TechShop</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS Khusus Kategori GPU -->
+    <link rel="stylesheet" href="css/gpu-style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-laptop me-2"></i>TechShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html#products">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html" id="cartNavLink">
+                            <i class="fas fa-shopping-cart"></i>
+                            Keranjang
+                            <span class="badge bg-danger cart-counter" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="py-3 bg-light">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom mb-0">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#products">Produk</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Kartu Grafis (GPU)</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Header Kategori -->
+    <section class="py-5 category-header gpu-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-5 fw-bold mb-3"><i class="fas fa-desktop me-2"></i>Kartu Grafis (GPU)</h1>
+                    <p class="lead mb-4">Temukan kartu grafis terbaru dari NVIDIA dan AMD untuk gaming, desain grafis, rendering 3D, dan machine learning.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-primary p-2">NVIDIA RTX 40 Series</span>
+                        <span class="badge bg-primary p-2">AMD Radeon RX 7000</span>
+                        <span class="badge bg-primary p-2">Ray Tracing</span>
+                        <span class="badge bg-primary p-2">DLSS 3</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="gpu-icon-container">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Produk -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <select class="form-select" id="gpuFilterBrand">
+                        <option value="">Semua Merek</option>
+                        <option value="nvidia">NVIDIA</option>
+                        <option value="amd">AMD</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="gpuFilterSeries">
+                        <option value="">Semua Seri</option>
+                        <option value="rtx40">RTX 40 Series</option>
+                        <option value="rtx30">RTX 30 Series</option>
+                        <option value="rx7000">RX 7000 Series</option>
+                        <option value="rx6000">RX 6000 Series</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="gpuFilterVRAM">
+                        <option value="">Kapasitas VRAM</option>
+                        <option value="8">8 GB</option>
+                        <option value="12">12 GB</option>
+                        <option value="16">16 GB</option>
+                        <option value="24">24 GB</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-outline-primary w-100" id="gpuResetFilter">
+                        <i class="fas fa-redo me-1"></i> Reset Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Produk GPU -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="section-title">Produk Kartu Grafis</h2>
+                    <p class="text-muted">Menampilkan <span id="gpuProductCount">6</span> produk</p>
+                </div>
+            </div>
+            
+            <div class="row g-4" id="gpuProducts">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6 gpu-product-item" data-brand="nvidia" data-series="rtx40" data-vram="16">
+                    <div class="card product-card h-100 shadow gpu-card">
+                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">HOT</span>
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="NVIDIA RTX 4090">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge nvidia">NVIDIA</div>
+                            <h5 class="card-title">NVIDIA GeForce RTX 4090</h5>
+                            <p class="card-text flex-grow-1">Kartu grafis flagship dengan 24GB GDDR6X, DLSS 3, dan ray tracing.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-memory me-1"></i> 24GB GDDR6X</small><br>
+                                <small><i class="fas fa-bolt me-1"></i> 450W TDP</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 28.500.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-gpu" data-product="NVIDIA GeForce RTX 4090">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-gpu">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6 gpu-product-item" data-brand="amd" data-series="rx7000" data-vram="24">
+                    <div class="card product-card h-100 shadow gpu-card">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">NEW</span>
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="AMD Radeon RX 7900 XTX">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge amd">AMD</div>
+                            <h5 class="card-title">AMD Radeon RX 7900 XTX</h5>
+                            <p class="card-text flex-grow-1">Kartu grafis AMD flagship dengan 24GB GDDR6 dan teknologi RDNA 3.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-memory me-1"></i> 24GB GDDR6</small><br>
+                                <small><i class="fas fa-bolt me-1"></i> 355W TDP</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 19.800.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-gpu" data-product="AMD Radeon RX 7900 XTX">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-gpu">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6 gpu-product-item" data-brand="nvidia" data-series="rtx40" data-vram="12">
+                    <div class="card product-card h-100 shadow gpu-card">
+                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="NVIDIA RTX 4070 Ti">
+                        <div class="card-body d-flex flex-column">
+                            <div class="brand-badge nvidia">NVIDIA</div>
+                            <h5 class="card-title">NVIDIA GeForce RTX 4070 Ti</h5>
+                            <p class="card-text flex-grow-1">Kartu grafis high-end dengan 12GB GDDR6X dan DLSS 3 untuk gaming 1440p.</p>
+                            <div class="specs mb-3">
+                                <small><i class="fas fa-memory me-1"></i> 12GB GDDR6X</small><br>
+                                <small><i class="fas fa-bolt me-1"></i> 285W TDP</small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold">Rp 14.200.000</span>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm add-to-cart-gpu" data-product="NVIDIA GeForce RTX 4070 Ti">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm ms-1 view-details-gpu">
+                                        <i class="fas fa-info"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Informasi GPU -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Panduan Memilih GPU</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <i class="fas fa-gamepad fa-3x text-primary mb-3"></i>
+                                        <h6>Untuk Gaming 1080p</h6>
+                                        <p>NVIDIA RTX 3060 atau AMD RX 6600 XT sudah cukup untuk gaming di resolusi 1080p dengan setting tinggi.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <i class="fas fa-desktop fa-3x text-primary mb-3"></i>
+                                        <h6>Untuk Gaming 1440p & 4K</h6>
+                                        <p>NVIDIA RTX 4070 Ti atau AMD RX 7900 XT direkomendasikan untuk gaming di resolusi tinggi.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center p-3">
+                                        <i class="fas fa-video fa-3x text-primary mb-3"></i>
+                                        <h6>Untuk Video Editing & 3D</h6>
+                                        <p>NVIDIA RTX 4080/4090 dengan VRAM besar ideal untuk rendering dan machine learning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-laptop me-2"></i>TechShop</h5>
+                    <p>Toko komputer terpercaya menyediakan segala kebutuhan komputasi Anda dengan kualitas dan harga terbaik.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kontak Kami</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Teknologi No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone me-2"></i> (021) 555-1234</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@techshop.com</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kategori Populer</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="category-cpu.html" class="text-light text-decoration-none">CPU & Processor</a></li>
+                        <li><a href="category-gpu.html" class="text-light text-decoration-none active">Kartu Grafis (GPU)</a></li>
+                        <li><a href="category-ram.html" class="text-light text-decoration-none">RAM & Memori</a></li>
+                        <li><a href="category-storage.html" class="text-light text-decoration-none">Penyimpanan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row pt-3">
+                <div class="col-12 text-center">
+                    <p>&copy; 2023 TechShop. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Khusus untuk Halaman GPU -->
+    <script src="js/gpu-script.js"></script>
+</body>
+</html>

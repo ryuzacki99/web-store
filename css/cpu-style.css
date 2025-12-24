@@ -1,0 +1,139 @@
+/* cpu-style.css - Stylesheet Khusus untuk Halaman Kategori CPU */
+
+/* 1. HEADER KHUSUS KATEGORI CPU */
+.category-header.cpu-header {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    margin-top: -1px;
+}
+.category-header.cpu-header h1 {
+    color: white;
+}
+.category-header.cpu-header .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+.cpu-icon-container {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+.cpu-icon-container i {
+    font-size: 5rem;
+    color: white;
+}
+
+/* 2. KARTU PRODUK KHUSUS CPU */
+.cpu-card {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+.cpu-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.2) !important;
+}
+.brand-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    width: fit-content;
+}
+.brand-badge.intel {
+    background-color: #0071c5;
+    color: white;
+}
+.brand-badge.amd {
+    background-color: #ed1c24;
+    color: white;
+}
+
+/* 3. FILTER STYLING KHUSUS */
+#filterBrand, #filterSocket, #filterCore {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#filterBrand:focus, #filterSocket:focus, #filterCore:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+#resetFilter {
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+#resetFilter:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 4. SPESIFIKASI TEKNIS STYLING */
+.specs {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+.specs small {
+    color: var(--secondary-color);
+}
+
+/* 5. MODAL CUSTOMIZATION */
+.modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+}
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+}
+.modal-body h4 {
+    color: var(--dark-bg);
+}
+
+/* 6. TOAST NOTIFICATION STYLING */
+#cartToast {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.toast-header {
+    background-color: var(--light-bg);
+}
+
+/* 7. ANIMASI KHUSUS UNTUK PRODUK CPU */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.cpu-card .add-to-cart:hover {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* 8. RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .cpu-icon-container {
+        width: 100px;
+        height: 100px;
+        margin-top: 1rem;
+    }
+    .cpu-icon-container i {
+        font-size: 3rem;
+    }
+    .category-header.cpu-header {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TechShop</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS khusus checkout -->
+    <link rel="stylesheet" href="css/checkout-style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-laptop me-2"></i>TechShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#products">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Kontak</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            Keranjang
+                            <span class="badge bg-danger cart-counter" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="py-3 bg-light">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom mb-0">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i> Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="cart.html">Keranjang</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Header Checkout -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="fw-bold mb-3"><i class="fas fa-shopping-bag me-2"></i>Checkout</h1>
+                    <p class="text-muted">Lengkapi informasi berikut untuk menyelesaikan pesanan Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Content -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Form Data Pengiriman -->
+                <div class="col-lg-8 mb-4">
+                    <div class="card shadow mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-user me-2"></i>Data Pemesan</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="checkoutForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="nama" class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="nama" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telepon" class="form-label">No. Telepon <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="telepon" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="alamat" class="form-label">Alamat Lengkap <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="alamat" rows="3" required></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="kota" class="form-label">Kota <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="kota" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="kodePos" class="form-label">Kode Pos</label>
+                                        <input type="text" class="form-control" id="kodePos">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Metode Pengiriman -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-truck me-2"></i>Metode Pengiriman</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="pengiriman" id="regular" checked>
+                                <label class="form-check-label" for="regular">
+                                    <strong>Reguler</strong> - 3-5 hari kerja
+                                    <span class="float-end text-primary">Rp 15.000</span>
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="radio" name="pengiriman" id="express">
+                                <label class="form-check-label" for="express">
+                                    <strong>Express</strong> - 1-2 hari kerja
+                                    <span class="float-end text-primary">Rp 30.000</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pengiriman" id="instan">
+                                <label class="form-check-label" for="instan">
+                                    <strong>Instant</strong> - Same day delivery
+                                    <span class="float-end text-primary">Rp 50.000</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metode Pembayaran -->
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i>Metode Pembayaran</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="pembayaran" id="transfer" checked>
+                                        <label class="form-check-label" for="transfer">
+                                            <i class="fas fa-university me-2"></i>Transfer Bank
+                                        </label>
+                                    </div>
+                                    <div class="payment-details mt-2 ms-4" id="transferDetails">
+                                        <small class="text-muted">
+                                            <strong>BCA: 1234567890 (TechShop)</strong><br>
+                                            <strong>Mandiri: 0987654321 (TechShop)</strong>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="pembayaran" id="kredit">
+                                        <label class="form-check-label" for="kredit">
+                                            <i class="fas fa-credit-card me-2"></i>Kartu Kredit
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="pembayaran" id="ewallet">
+                                        <label class="form-check-label" for="ewallet">
+                                            <i class="fas fa-mobile-alt me-2"></i>E-Wallet
+                                        </label>
+                                    </div>
+                                    <div class="payment-details mt-2 ms-4" id="ewalletDetails" style="display: none;">
+                                        <small class="text-muted">
+                                            <strong>GoPay: 081234567890</strong><br>
+                                            <strong>OVO: 081234567890</strong><br>
+                                            <strong>Dana: 081234567890</strong>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="pembayaran" id="cod">
+                                        <label class="form-check-label" for="cod">
+                                            <i class="fas fa-money-bill-wave me-2"></i>COD (Cash on Delivery)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ringkasan Pesanan -->
+                <div class="col-lg-4">
+                    <div class="card shadow sticky-top" style="top: 100px;">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-receipt me-2"></i>Ringkasan Pesanan</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="orderSummary">
+                                <!-- Daftar produk akan diisi oleh JavaScript -->
+                                <div class="text-center my-4">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal</span>
+                                <span id="subtotal">Rp 0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Biaya Pengiriman</span>
+                                <span id="shippingCost">Rp 15.000</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Pajak (10%)</span>
+                                <span id="tax">Rp 0</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5>Total</h5>
+                                <h5 class="text-primary" id="totalAmount">Rp 0</h5>
+                            </div>
+                            
+                            <!-- Tombol Checkout -->
+                            <button class="btn btn-primary btn-lg w-100 mb-3" id="processPayment">
+                                <i class="fas fa-lock me-2"></i>Bayar Sekarang
+                            </button>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" checked>
+                                <label class="form-check-label small" for="agreeTerms">
+                                    Saya menyetujui <a href="#" class="text-primary">Syarat & Ketentuan</a> TechShop
+                                </label>
+                            </div>
+                            
+                            <a href="cart.html" class="btn btn-outline-primary w-100">
+                                <i class="fas fa-arrow-left me-2"></i>Kembali ke Keranjang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Keamanan -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-3">
+                    <div class="p-3">
+                        <i class="fas fa-shield-alt fa-2x text-primary mb-3"></i>
+                        <h6>Pembayaran Aman</h6>
+                        <p class="small text-muted mb-0">Data pembayaran Anda dilindungi dengan enkripsi</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="p-3">
+                        <i class="fas fa-lock fa-2x text-primary mb-3"></i>
+                        <h6>Privasi Terjaga</h6>
+                        <p class="small text-muted mb-0">Data pribadi Anda tidak akan dibagikan</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="p-3">
+                        <i class="fas fa-headset fa-2x text-primary mb-3"></i>
+                        <h6>Dukungan 24/7</h6>
+                        <p class="small text-muted mb-0">Tim support siap membantu Anda kapan saja</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-laptop me-2"></i>TechShop</h5>
+                    <p>Toko komputer terpercaya menyediakan segala kebutuhan komputasi Anda dengan kualitas dan harga terbaik.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Kontak Kami</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Teknologi No. 123, Jakarta</p>
+                    <p><i class="fas fa-phone me-2"></i> (021) 555-1234</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@techshop.com</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Pembayaran</h5>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa fa-2x me-2"></i>
+                        <i class="fab fa-cc-mastercard fa-2x me-2"></i>
+                        <i class="fab fa-cc-paypal fa-2x me-2"></i>
+                        <i class="fas fa-university fa-2x"></i>
+                    </div>
+                    <p class="small mt-2">Kami menerima berbagai metode pembayaran yang aman</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row pt-3">
+                <div class="col-12 text-center">
+                    <p>&copy; 2023 TechShop. Hak Cipta Dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Konfirmasi -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="successModalLabel"><i class="fas fa-check-circle me-2"></i>Pesanan Berhasil!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-check-circle fa-4x text-success mb-3"></i>
+                    <h4>Terima Kasih!</h4>
+                    <p>Pesanan Anda telah berhasil diproses.</p>
+                    <div class="alert alert-info">
+                        <strong>No. Pesanan: <span id="orderNumber">TS-20231201-001</span></strong><br>
+                        <small>Simpan nomor ini untuk melacak pesanan Anda</small>
+                    </div>
+                    <p>Konfirmasi pembayaran akan dikirim ke email Anda.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="index.html" class="btn btn-primary">Kembali ke Beranda</a>
+                    <button type="button" class="btn btn-outline-primary" onclick="printInvoice()">
+                        <i class="fas fa-print me-1"></i>Cetak Invoice
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Khusus untuk Checkout -->
+    <script src="js/checkout-script.js"></script>
+</body>
+</html>

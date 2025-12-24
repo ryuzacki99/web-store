@@ -1,0 +1,109 @@
+/* cart-style.css - Stylesheet Khusus untuk Halaman Cart */
+
+/* Sticky summary */
+.sticky-top {
+    z-index: 1020;
+}
+
+/* Cart table styling */
+.table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Quantity input styling */
+.input-group.input-group-sm {
+    width: 120px;
+}
+
+.input-group.input-group-sm .form-control {
+    text-align: center;
+    padding: 0.25rem;
+}
+
+/* Empty cart styling */
+#emptyCart i {
+    opacity: 0.5;
+}
+
+/* Toast notification */
+.toast {
+    min-width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Recommendation cards */
+.recommendation-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.recommendation-card .card-img-top {
+    object-fit: cover;
+    height: 100px;
+}
+
+/* Coupon message animation */
+#couponMessage {
+    transition: all 0.3s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+    
+    .input-group.input-group-sm {
+        width: 100px;
+    }
+    
+    #clearCartBtn,
+    #checkoutBtn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Animation for cart actions */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#cartItems,
+#emptyCart {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Button hover effects */
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+
+/* Summary highlight */
+#summaryContent h4 {
+    font-weight: 800;
+}
